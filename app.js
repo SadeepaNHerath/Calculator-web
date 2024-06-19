@@ -1,7 +1,7 @@
 let number1 = new Number (document.getElementById("num1").value);
 let number2 = new Number (document.getElementById("num2").value);
 let operator = document.getElementById("operator").value;
-let output = document.getElementById("output");
+let output = document.getElementById("output").innerHTML;
 
 function calc(){
     
