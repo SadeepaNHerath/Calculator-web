@@ -1,15 +1,17 @@
-let number1 = new Number (document.getElementById("num1").value);
-let number2 = new Number (document.getElementById("num2").value);
-let operator = document.getElementById("operator").value;
-let output = document.getElementById("output").innerHTML;
+function calc() {
+    let number1 = new Number(document.getElementById("num1").value);
+    let number2 = new Number(document.getElementById("num2").value);
+    let operator = document.getElementById("operator").value;
+    let output = document.getElementById("output");
 
-function calc(){
+    console.log(operator);
     
-    switch(operator){
-        case "+" : output = (number1+number2) ; break;
-        case "-" : output = (number1-number2) ; break;
-        case "*" : output = (number1*number2) ; break;
-        case "/" : output = (number1/number2) ; break;
-        default : output = "Choose option";
+    switch (operator) {
+        case "+": output.innerHTML = "Answer is " + (number1 + number2); break;
+        case "-": output.innerHTML = "Answer is " + (number1 - number2); break;
+        case "*": output.innerHTML = "Answer is " + (number1 * number2); break;
+        case "/": output.innerHTML = "Answer is " + (number1 / number2); break;
+        default: output.innerHTML = "Choose option";
     }
-}
+
+} 
