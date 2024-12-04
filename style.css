@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #1b1b1b;
+    padding: 0 15px;
+  }
+  
+  .calculator {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 320px;
+    width: 100%;
+  }
+  
+  .calculator .value {
+    grid-column: span 4;
+    height: 100px;
+    text-align: right;
+    border: none;
+    outline: none;
+    padding: 15px;
+    font-size: 2rem;
+    background: #292929;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .calculator span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background: #292929;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #fff;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .calculator span:hover {
+    background: #03b1ff;
+  }
+  
+  .calculator span:active {
+    background: #ff9f00;
+    color: #fff;
+  }
+  
+  .calculator span.clear {
+    grid-column: span 2;
+    background: #ff9f00;
+    color: white;
+  }
+  
+  .calculator span.plus {
+    grid-row: span 2;
+    height: 120px;
+    background: #ffc107;
+  }
+  
+  .calculator span.equal {
+    background: #28a745;
+    color: white;
+  }
+  
+  .calculator .num, .calculator .num.plus, .calculator .equal, .calculator .clear {
+    font-weight: bold;
+  }
+  
+  @media (max-width: 380px) {
+    .calculator {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .calculator .value {
+      font-size: 1.8rem;
+      padding: 12px;
+    }
+    .calculator span {
+      font-size: 1.3rem;
+      height: 55px;
+    }
+  }
+  

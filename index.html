@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<body class="d-flex align-items-center justify-content-center" style="height: 100vh; background: url('img/calc.avif') center center / cover no-repeat fixed;">
-    <div class="container justify-content-center align-items-center ">
-        <h1>Calculator <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calculator" viewBox="0 0 16 16">
-            <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
-            <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
-        </svg> </h1>    
-        <input type="text" placeholder="number 1" id="num1"> <br> <br>
-        <select name="operator" id="operator"> 
-            <option value=""><h3> Choose Option </h3></option>
-            <option value="+"><h3> + </h3></option>
-            <option value="-"><h3> - </h3></option>
-            <option value="*"><h3> * </h3></option>
-            <option value="/"><h3> / </h3></option>
-        </select> <br> <br>
-        <input type="text" placeholder="number 2" id="num2"> <br> <br>
-        <label for="" id="output"></label> <br> <br>
-        <input type="button" value="Calculate" id="btn_calc" onclick="calc()">
-    </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+
+  </head>
+  <body>
+    <form class="calculator" name="calc">
+      <input type="text" class="value" name="txt" readonly="" />
+      <span class="num clear" onclick="clearAll()">C</span>
+      <span class="num" onclick="appendToDisplay('/')"><i class="fas fa-divide"></i></span>
+      <span class="num" onclick="appendToDisplay('*')"><i class="fas fa-times"></i></span>
+      <span class="num" onclick="appendToDisplay('7')">7</span>
+      <span class="num" onclick="appendToDisplay('8')">8</span>
+      <span class="num" onclick="appendToDisplay('9')">9</span>
+      <span class="num" onclick="appendToDisplay('-')"><i class="fas fa-minus"></i></span>
+      <span class="num" onclick="appendToDisplay('4')">4</span>
+      <span class="num" onclick="appendToDisplay('5')">5</span>
+      <span class="num" onclick="appendToDisplay('6')">6</span>
+      <span class="num plus" onclick="appendToDisplay('+')"><i class="fas fa-plus"></i></span>
+      <span class="num" onclick="appendToDisplay('1')">1</span>
+      <span class="num" onclick="appendToDisplay('2')">2</span>
+      <span class="num" onclick="appendToDisplay('3')">3</span>
+      <span class="num" onclick="appendToDisplay('0')">0</span>
+      <span class="num" onclick="appendToDisplay('00')">00</span>
+      <span class="num" onclick="appendToDisplay('.')">.</span>
+      <span class="num equal" onclick="calculateResult()"><i class="fas fa-equals"></i></span>
+    </form>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
